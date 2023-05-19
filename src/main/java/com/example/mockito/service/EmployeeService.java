@@ -95,12 +95,18 @@ public class EmployeeService {
 
     public Employee getEmployeeMinSalary() {
         List<Employee> employeeList = new ArrayList<>(employees.values());
+        if (employeeList.isEmpty()){
+            throw new EmployeeNotFoundException();
+        }
         return Collections.min(employeeList);
 
     }
 
     public Employee getEmployeeMaxSalary() {
         List<Employee> employeeList = new ArrayList<>(employees.values());
+        if (employeeList.isEmpty()){
+            throw new EmployeeNotFoundException();
+        }
         return Collections.max(employeeList);
 
     }
